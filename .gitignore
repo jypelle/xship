@@ -1,0 +1,7 @@
+.vscode
+.idea/*
+!/.idea/runConfigurations
+pkged.go
+*-packr.go
+*.DS_Store
+src
