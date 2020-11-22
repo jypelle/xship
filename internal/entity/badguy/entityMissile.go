@@ -32,9 +32,6 @@ func (e *entityMissile) Update(xshipEntity *xship.Entity, missileEntities []*mis
 	if e.state == BadGuyEnabledState {
 		if e.position.X < -40 {
 			e.state = BadGuyDisabledState
-			if *score > 0 {
-				*score--
-			}
 		} else {
 			// Xship collision
 			if xshipEntity.IsVulnerable() && img.IsCollided(&imgdata.XshipSprite.HitBox, xshipEntity.Position(), &imgdata.MissileSprite.HitBox, e.position) {
