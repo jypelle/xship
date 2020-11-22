@@ -1,6 +1,6 @@
 package internal
 
-func WinStageInit() {
+func WinStageReset() {
 
 }
 
@@ -11,4 +11,3 @@ func WinStageUpdate() {
 func WinStageDraw() {
 
 }
-

@@ -1,12 +1,10 @@
 package internal
 
 import (
-	"./constant"
 	"./device"
-	"./img"
+	"./entity/stars"
+	"./entity/xship"
 	"image/color"
-	"math/rand"
-	"tinygo.org/x/drivers/st7735"
 )
 
 // Buffers
@@ -19,11 +17,8 @@ var hpColors = []color.RGBA{
 	{R: 2, G: 6, B: 0, A: 255},
 	{R: 0, G: 8, B: 0, A: 255},
 }
+
 var blackColor = color.RGBA{R: 0, G: 0, B: 0, A: 255}
-var blueStarPositions = make([]img.Position, 50)
-var whiteStarPositions = make([]img.Position, 75)
-var whiteStarC565 = st7735.RGBATo565(color.RGBA{R: 255, G: 255, B: 255, A: 255})
-var blueStarC565 = st7735.RGBATo565(color.RGBA{R: 180, G: 180, B: 255, A: 255})
 
 type GameStage int
 
@@ -38,28 +33,16 @@ const (
 var gameStage = UndefinedStage
 var nextGameStage = IntroStage
 
-var starBackgroundXpos int32
-var xshipStatus XshipStatus
+var xshipEntity *xship.Entity
+var starsEntity *stars.Entity
+var score int
 
 func Setup() {
 
 	// Setup devices
 	device.Setup()
 
-	// Create starBackground
-	for i := 0; i < 50; i++ {
-		blueStarPositions[i] = img.Position{
-			X: int16(rand.Intn(int(constant.BOARD_WIDTH))),
-			Y: int16(rand.Intn(int(constant.BOARD_HEIGHT))),
-		}
-	}
-	for i := 0; i < 75; i++ {
-		whiteStarPositions[i] = img.Position{
-			X: int16(rand.Intn(int(constant.BOARD_WIDTH))),
-			Y: int16(rand.Intn(int(constant.BOARD_HEIGHT))),
-		}
-	}
-
+	starsEntity = stars.NewStarsEntity()
 }
 
 func Update() {
@@ -70,13 +53,13 @@ func Update() {
 
 		switch gameStage {
 		case IntroStage:
-			IntroStageInit()
+			IntroStageReset()
 		case PlayStage:
-			PlayStageInit()
+			PlayStageReset()
 		case WinStage:
-			WinStageInit()
+			WinStageReset()
 		case LooseStage:
-			LooseStageInit()
+			LooseStageReset()
 		}
 	}
 

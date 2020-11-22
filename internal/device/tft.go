@@ -9,16 +9,16 @@ import (
 
 type tftDev struct {
 	st7735.Device
-	tft565Buffer []uint8
+	tft565Buffer  []uint8
 	width, height int32
 }
 
-func NewTftDevice(width, height int32) *tftDev{
+func NewTftDevice(width, height int32) *tftDev {
 	return &tftDev{
-		Device : st7735.New(machine.SPI1, machine.TFT_RST, machine.TFT_DC, machine.TFT_CS, machine.TFT_LITE),
+		Device:       st7735.New(machine.SPI1, machine.TFT_RST, machine.TFT_DC, machine.TFT_CS, machine.TFT_LITE),
 		tft565Buffer: make([]uint8, height*width*2),
-		width: width,
-		height: height,
+		width:        width,
+		height:       height,
 	}
 }
 
@@ -46,16 +46,16 @@ func (d *tftDev) SetPixel(x, y int32, color color.RGBA) {
 
 var blackC565 = st7735.RGBATo565(color.RGBA{R: 0, G: 0, B: 0, A: 255})
 
-func (d *tftDev) DrawImageFromAsset(asset img.Asset, imageAsset img.ImageAsset, offset img.Position, frame int) {
-	fullXOffset := int32(imageAsset.Offset[frame%len(imageAsset.Offset)].X)
-	fullYOffset := int32(imageAsset.Offset[frame%len(imageAsset.Offset)].Y)
+func (d *tftDev) DrawImageFromAsset(imageAsset img.ImageAsset, offset img.Position, frame int) {
+	fullXOffset := imageAsset.Offset[frame%len(imageAsset.Offset)].X
+	fullYOffset := imageAsset.Offset[frame%len(imageAsset.Offset)].Y
 	var pixelOffset int32
 	for y := int32(0); y < imageAsset.Height; y++ {
 		for x := int32(0); x < imageAsset.Width; x++ {
-			pixelOffset = ((fullYOffset+y)*asset.Width+fullXOffset+x)*2
+			pixelOffset = ((fullYOffset+y)*imageAsset.Asset.Width + fullXOffset + x) * 2
 			d.SetPixelFromC565Alpha(
 				int32(offset.X)+x, int32(offset.Y)+y,
-				uint16(asset.Data[pixelOffset]) | uint16(asset.Data[pixelOffset+1])<<8,
+				uint16(imageAsset.Asset.Data[pixelOffset])|uint16(imageAsset.Asset.Data[pixelOffset+1])<<8,
 			)
 		}
 	}
@@ -96,4 +96,12 @@ func (d *tftDev) Refresh() error {
 	d.Tx(d.tft565Buffer, false)
 
 	return nil
+}
+
+func (d *tftDev) Width() int32 {
+	return d.width
+}
+
+func (d *tftDev) Height() int32 {
+	return d.height
 }

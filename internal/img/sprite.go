@@ -8,10 +8,10 @@ type HitBox struct {
 
 type Sprite struct {
 	ImageAsset
-	HitBox   HitBox
+	HitBox HitBox
 }
 
-func IsCollided(sprite1 *Sprite, position1 Position, sprite2 *Sprite, position2 Position) bool {
-	return (int32(position1.X + sprite1.HitBox.Offset.X) + sprite1.HitBox.Width) > int32(position2.X + sprite2.HitBox.Offset.X) && int32(position1.X + sprite1.HitBox.Offset.X) < (int32(position2.X + sprite2.HitBox.Offset.X) + sprite2.HitBox.Width) &&
-	 (int32(position1.Y + sprite1.HitBox.Offset.Y) + sprite1.HitBox.Height) > int32(position2.Y + sprite2.HitBox.Offset.Y) && int32(position1.Y + sprite1.HitBox.Offset.Y) < (int32(position2.Y) + sprite2.HitBox.Height)
+func IsCollided(hitBox1 *HitBox, position1 Position, hitBox2 *HitBox, position2 Position) bool {
+	return (position1.X+hitBox1.Offset.X)+hitBox1.Width > position2.X+hitBox2.Offset.X && position1.X+hitBox1.Offset.X < (position2.X+hitBox2.Offset.X+hitBox2.Width) &&
+		(position1.Y+hitBox1.Offset.Y)+hitBox1.Height > position2.Y+hitBox2.Offset.Y && position1.Y+hitBox1.Offset.Y < (position2.Y+hitBox2.Height)
 }
