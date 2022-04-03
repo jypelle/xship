@@ -1,6 +1,6 @@
 package imgdata
 
-import "../img"
+import "github.com/jypelle/xship/internal/img"
 
 var XshipSprite = img.Sprite{
 	ImageAsset: img.ImageAsset{

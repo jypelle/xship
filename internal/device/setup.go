@@ -2,7 +2,8 @@ package device
 
 import (
 	"machine"
-	"../constant"
+
+	"github.com/jypelle/xship/internal/constant"
 )
 
 var NeoDevice = NewNeoDevice(machine.NEOPIXELS)

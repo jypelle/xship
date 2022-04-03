@@ -1,9 +1,10 @@
 package device
 
 import (
-	"../img"
 	"image/color"
 	"machine"
+
+	"github.com/jypelle/xship/internal/img"
 	"tinygo.org/x/drivers/st7735"
 )
 

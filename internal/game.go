@@ -1,10 +1,11 @@
 package internal
 
 import (
-	"./device"
-	"./entity/stars"
-	"./entity/xship"
 	"image/color"
+
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/entity/stars"
+	"github.com/jypelle/xship/internal/entity/xship"
 )
 
 // Buffers

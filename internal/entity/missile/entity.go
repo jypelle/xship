@@ -1,9 +1,9 @@
 package missile
 
 import (
-	"../../device"
-	"../../img"
-	"../../imgdata"
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/img"
+	"github.com/jypelle/xship/internal/imgdata"
 )
 
 type Entity struct {

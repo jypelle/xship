@@ -1,12 +1,13 @@
 package stars
 
 import (
-	"../../constant"
-	"../../device"
-	"../../img"
-	"../../imgdata"
 	"image/color"
 	"math/rand"
+
+	"github.com/jypelle/xship/internal/constant"
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/img"
+	"github.com/jypelle/xship/internal/imgdata"
 	"tinygo.org/x/drivers/st7735"
 )
 

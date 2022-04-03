@@ -1,11 +1,11 @@
 package badguy
 
 import (
-	"../../device"
-	"../../img"
-	"../../imgdata"
-	"../missile"
-	"../xship"
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/entity/missile"
+	"github.com/jypelle/xship/internal/entity/xship"
+	"github.com/jypelle/xship/internal/img"
+	"github.com/jypelle/xship/internal/imgdata"
 	"tinygo.org/x/drivers/buzzer"
 )
 

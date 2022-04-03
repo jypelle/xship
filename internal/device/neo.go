@@ -2,6 +2,7 @@ package device
 
 import (
 	"machine"
+
 	"tinygo.org/x/drivers/ws2812"
 )
 
@@ -9,7 +10,7 @@ type neoDev struct {
 	ws2812.Device
 }
 
-func NewNeoDevice(pin machine.Pin) *neoDev{
+func NewNeoDevice(pin machine.Pin) *neoDev {
 	return &neoDev{
 		Device: ws2812.New(pin),
 	}

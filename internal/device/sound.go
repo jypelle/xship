@@ -2,6 +2,7 @@ package device
 
 import (
 	"machine"
+
 	"tinygo.org/x/drivers/buzzer"
 )
 
@@ -9,7 +10,7 @@ type soundDev struct {
 	buzzer.Device
 }
 
-func NewSoundDevice(pin machine.Pin) *soundDev{
+func NewSoundDevice(pin machine.Pin) *soundDev {
 	return &soundDev{
 		Device: buzzer.New(pin),
 	}

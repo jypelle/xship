@@ -1,13 +1,14 @@
 package internal
 
 import (
-	"./constant"
-	"./device"
-	"./entity/badguy"
-	"./entity/missile"
-	"./img"
-	"./imgdata"
 	"math/rand"
+
+	"github.com/jypelle/xship/internal/constant"
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/entity/badguy"
+	"github.com/jypelle/xship/internal/entity/missile"
+	"github.com/jypelle/xship/internal/img"
+	"github.com/jypelle/xship/internal/imgdata"
 )
 
 var missileEntities = make([]*missile.Entity, constant.MISSILE_ENTITY_MAX)
