@@ -8,7 +8,7 @@ A shoot'em up built with [tinygo](https://tinygo.org/) for the [pygamer](https:/
 
 ## Installation (Linux)
 
-Install tinygo >= 0.16.0 (need this [fix](https://github.com/tinygo-org/tinygo/commit/db27541b1a44a903feeeef91840314a56fcdc725) to use TFT screen on pygamer).
+Install tinygo >= 0.22.0.
 
 Connect your pygamer to a USB port.
 
@@ -25,7 +25,7 @@ Enjoy!
 
 If you have updated [game asset](images/asset.png):
 
-Install go >= 1.9
+Install go >= 1.17
 
 ```bash
 make asset
