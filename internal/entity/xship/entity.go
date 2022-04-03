@@ -1,11 +1,11 @@
 package xship
 
 import (
-	"../../constant"
-	"../../device"
-	"../../img"
-	"../../imgdata"
-	"../missile"
+	"github.com/jypelle/xship/internal/constant"
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/entity/missile"
+	"github.com/jypelle/xship/internal/img"
+	"github.com/jypelle/xship/internal/imgdata"
 	"tinygo.org/x/drivers/buzzer"
 )
 

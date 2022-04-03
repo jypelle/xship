@@ -2,7 +2,8 @@ package main
 
 import (
 	"time"
-	"../../internal"
+
+	"github.com/jypelle/xship/internal"
 )
 
 var iterationStartTime time.Time
@@ -22,8 +23,8 @@ func main() {
 
 		internal.Draw()
 
-		duration = 32 * time.Millisecond - time.Now().Sub(iterationStartTime)
-		if duration>0 {
+		duration = 32*time.Millisecond - time.Now().Sub(iterationStartTime)
+		if duration > 0 {
 			time.Sleep(duration)
 		}
 	}

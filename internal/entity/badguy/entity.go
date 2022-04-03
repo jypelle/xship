@@ -1,9 +1,9 @@
 package badguy
 
 import (
-	"../../img"
-	"../missile"
-	"../xship"
+	"github.com/jypelle/xship/internal/entity/missile"
+	"github.com/jypelle/xship/internal/entity/xship"
+	"github.com/jypelle/xship/internal/img"
 )
 
 type Type uint8

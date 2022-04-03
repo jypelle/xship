@@ -1,9 +1,10 @@
 package internal
 
 import (
-	"./device"
-	"./entity/xship"
 	"math"
+
+	"github.com/jypelle/xship/internal/device"
+	"github.com/jypelle/xship/internal/entity/xship"
 )
 
 func IntroStageReset() {

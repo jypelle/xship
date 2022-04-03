@@ -1,7 +1,7 @@
 package badguy
 
 import (
-	"../../img"
+	"github.com/jypelle/xship/internal/img"
 )
 
 func NewEntityCommon(position img.Position) entityCommon {

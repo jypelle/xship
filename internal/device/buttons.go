@@ -2,15 +2,16 @@ package device
 
 import (
 	"machine"
+
 	"tinygo.org/x/drivers/shifter"
 )
 
 type buttonsDev struct {
-	buttonsShifter shifter.Device
+	buttonsShifter               shifter.Device
 	previousButtonsId, buttonsId uint8
 }
 
-func NewButtonsDevice() *buttonsDev{
+func NewButtonsDevice() *buttonsDev {
 	return &buttonsDev{
 		buttonsShifter: shifter.New(shifter.EIGHT_BITS, machine.BUTTON_LATCH, machine.BUTTON_CLK, machine.BUTTON_OUT),
 	}
@@ -21,7 +22,7 @@ func (d *buttonsDev) configure() {
 }
 
 func (d *buttonsDev) RefreshState() {
-	d.previousButtonsId =  d.buttonsId
+	d.previousButtonsId = d.buttonsId
 	d.buttonsId, _ = d.buttonsShifter.Read8Input()
 }
 

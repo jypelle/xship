@@ -1,6 +1,6 @@
 package imgdata
 
-import "../img"
+import "github.com/jypelle/xship/internal/img"
 
 var asset1 = img.Asset{
 	Width:  70,
